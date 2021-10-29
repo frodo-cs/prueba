@@ -6,6 +6,14 @@ interface BookProps{
     deleteHandler: (e: React.MouseEvent<HTMLElement>) => void
 }
 
+/*
+*
+* Componente para visualizar el libro en la tabla
+* Los datos se pasan por medio de props
+* Tiene un link a la página del libro para ver el resto de los metadatos y un botón para eliminar la entrada de la tabla
+*
+*/
+
 const BookListItem: React.FC<BookProps> = props => {
     return (<tr>
                 <td>

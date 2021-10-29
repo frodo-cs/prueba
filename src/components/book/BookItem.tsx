@@ -8,6 +8,13 @@ interface BookParams{
     id: string
 }
 
+/*
+*
+* Componente para vizualizar algunos de los metadatos del epub
+* Recibe el id del documento por medio de Params
+*
+*/
+
 const BookItem = () => {
     const [book, setBook] = useState<Book>();
     const { id } = useParams<BookParams>();

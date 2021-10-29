@@ -4,6 +4,13 @@ import { useEffect, useState } from 'react';
 import { Button, Container, Row, Table, Col} from "react-bootstrap";
 import BookListItem from './BookListItem';
 
+/*
+*
+* Componente para visualizar el conjunto de datos
+* Los datos se cargan por medio de una llamada al API de Gutendex
+*
+*/
+
 const BookList = () => {
     const [loadedBooks, setLoadedBooks] = useState<Array<Book>>([]);
     const [books, setBooks] = useState<Array<Book>>([]);
@@ -42,6 +49,15 @@ const BookList = () => {
 
     return ( 
     <Container style={{ marginBottom:'2vh' }}>
+        <Row style={{ marginBottom:'1vh' }}>
+            <Col style={{display:'flex', justifyContent:'left'}}>
+                <Button disabled={ pageNumber <= 1 } variant="dark" onClick={() => setPage(pageNumber - 1)}>Prev</Button>
+            </Col>
+            <Col className="text-center">{ pageNumber }</Col>
+            <Col style={{display:'flex', justifyContent:'right'}}>
+                <Button disabled={ lastPage } variant="dark" onClick={() => setPage(pageNumber + 1)}>Next</Button>
+            </Col>
+        </Row>
         <Table striped bordered hover>
         <thead>
             <tr>
